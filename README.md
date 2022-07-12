@@ -9,11 +9,11 @@
 - [Source code tree](#source-code-tree)
 - [Distinctiveness and Complexity](#distinctiveness-and-complexity)
 
-### Movie Theater
+## Movie Theater
 This project is for the final project [Capstone](https://cs50.harvard.edu/web/2020/projects/final/cap) of the online course [CS50's Web Programming with Python and JavaScript](https://cs50.harvard.edu/web/). The website replicates the basic functions of a movie theater website, where users can register for an account, see which movies is showing, select times, choose a seat, book a ticket for a movie, and see their booking history.
 This project uses Django as backend and ReactJS, Javascript (ES6), Bootstrap for frontend.
 
-#### Technologies used:
+### Technologies used:
 - Python
 - Django
 - Django Rest Framework
@@ -23,7 +23,7 @@ This project uses Django as backend and ReactJS, Javascript (ES6), Bootstrap for
 - Bootstrap
 
 
-#### Project requirements:
+### Project requirements:
 - Must be sufficiently distinct from the other projects in this course.
 - Utilizes Django (with at lease one model) on the back-end and JavaScript on the front-end.
 - All pages are mobile responsive.
@@ -36,7 +36,7 @@ This project uses Django as backend and ReactJS, Javascript (ES6), Bootstrap for
     - Uses `ModelSerializer` to serialize all model query to return results
     - Implement [JWT Authentication](https://jwt.io/) to Django using [Simple JWT](https://django-rest-framework-simplejwt.readthedocs.io/) for [Django-Rest-Framework](https://www.django-rest-framework.org/)
 
-#### Key features:
+### Key features:
 - ReactJS for frontend UI
 - JWT authentication for user
 - ##### For user: 
@@ -46,7 +46,7 @@ This project uses Django as backend and ReactJS, Javascript (ES6), Bootstrap for
         3. Select seat (Cannot choose the seat that has been taken by other user)
         4. Select ticket type
     - View your booked ticket
-- ##### For administrator (Utilize django admin):
+- ##### For administrator (Utilize Django admin):
     - Create new movie
     - Create new gernes
     - Create screen date and time for a movie
@@ -54,7 +54,7 @@ This project uses Django as backend and ReactJS, Javascript (ES6), Bootstrap for
     - Manage ticket type and price for each types
     - Manage movies, genres, screens, seats, theaters, ticket types and bookings by user
 
-### How to run
+## How to run
 1. Clone this repo
 ```
 git clone https://github.com/ibretsam/movie-theater.git
@@ -100,7 +100,7 @@ python manage.py runserver
 ```
 
 
-### API
+## API
 
 #### WEBSITE API
 
@@ -223,7 +223,7 @@ Return a refresh token every 4 minutes
 	'body': {'refresh': String}
 
 
-### Source code tree
+## Source code tree
 - 📁 `finalProject` - Main project dir
 	- 📁 `capstone`
 	- 📁 `front-end` - Frontend (ReactJS)
@@ -271,4 +271,4 @@ Return a refresh token every 4 minutes
 		- 📄 `views.py` - App views
 	- 📄 `requirement.txt` - Required python dependency
 
-### Distinctiveness and Complexity
+## Distinctiveness and Complexity

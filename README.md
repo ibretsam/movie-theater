@@ -56,6 +56,9 @@ This project uses Django as backend and ReactJS, Javascript (ES6), Bootstrap for
 
 ### How to run
 1. Clone this repo
+```
+git clone https://github.com/ibretsam/movie-theater.git
+```
 2. Create a virtual environment and activate it:
 
 ```
@@ -69,8 +72,33 @@ python3 -m venv venv
 	venv/Scripts/activate.bat
 ```
 3. Install required python dependencies:
-`pip install -r requirements.txt`
-4. 
+```
+pip install -r requirements.txt
+```
+
+4. Navigate into main front-end foldder: 
+```
+cd front-end/movietheater
+``` 
+
+5. Install required Node dependencies:
+```
+npm install --legacy-peer-deps
+```
+
+6. Build React app:
+```
+npm run build
+```
+7. Navigate back to main project folder
+```
+cd ../..
+```
+8. And finally start the Django web server
+```
+python manage.py runserver
+```
+
 
 ### API
 

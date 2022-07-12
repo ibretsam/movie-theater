@@ -8,19 +8,26 @@
 - [API](#api)
 - [Source code tree](#source-code-tree)
 - [Distinctiveness and Complexity](#distinctiveness-and-complexity)
+- [Footnote](#footnote)
 
 ## Movie Theater
-This project is for the final project [Capstone](https://cs50.harvard.edu/web/2020/projects/final/cap) of the online course [CS50's Web Programming with Python and JavaScript](https://cs50.harvard.edu/web/). The website replicates the basic functions of a movie theater website, where users can register for an account, see which movies is showing, select times, choose a seat, book a ticket for a movie, and see their booking history.
+This project is for the final project [Capstone](https://cs50.harvard.edu/web/2020/projects/final/cap) of the online course [CS50's Web Programming with Python and JavaScript](https://cs50.harvard.edu/web/). The project replicates the basic functions of a movie theater website, where users can register for an account, see which movies is showing, select times, choose a seat, book a ticket for a movie, and see their booking history.
 This project uses Django as backend and ReactJS, Javascript (ES6), Bootstrap for frontend.
 
 ### Technologies used:
 - Python
-- Django
-- Django Rest Framework
-- Javascript (ES6)
-- ReactJS
-- React-Router-DOM
-- Bootstrap
+- Django:
+	- Uses [Django-Rest-Framework](https://www.django-rest-framework.org/) for API manage:
+		- Uses `@api_view` decorator to response to API calls
+		- Uses `ModelSerializer` to serialize all model query to return results
+		- Implement [JWT Authentication](https://jwt.io/) to Django using [Simple JWT](https://django-rest-framework-simplejwt.readthedocs.io/) for [Django-Rest-Framework](https://www.django-rest-framework.org/)
+- Javascript (ES6):
+    - Uses `Fetch API` for all API calls to communicate with backend.
+- ReactJS:
+	- Uses ReactJS for frontend UI, only communicates with backend through API calls.
+	- Uses `Hash Router` and `useNavigate` from [react-router-dom](http://reactrouter.com/) to routes and navigate through pages.
+- Bootstrap:
+    - Uses [Bootstrap](https://getbootstrap.com/docs/4.0/getting-started/introduction/) for CSS decoration.
 
 
 ### Project requirements:
@@ -28,13 +35,7 @@ This project uses Django as backend and ReactJS, Javascript (ES6), Bootstrap for
 - Utilizes Django (with at lease one model) on the back-end and JavaScript on the front-end.
 - All pages are mobile responsive.
 - Uses ReactJS for frontend UI, only communicates with backend through API calls.
-	- Uses `Hash Router` and `useNavigate` from [react-router-dom](http://reactrouter.com/) to routes and navigate through pages.
-    - Uses `Fetch API` for all API calls to communicate with backend.
-    - Uses [Bootstrap](https://getbootstrap.com/docs/4.0/getting-started/introduction/) for CSS decoration.
-- Uses [Django-Rest-Framework](https://www.django-rest-framework.org/) for API manage:
-    - Uses `@api_view` decorator to response to API calls
-    - Uses `ModelSerializer` to serialize all model query to return results
-    - Implement [JWT Authentication](https://jwt.io/) to Django using [Simple JWT](https://django-rest-framework-simplejwt.readthedocs.io/) for [Django-Rest-Framework](https://www.django-rest-framework.org/)
+
 
 ### Key features:
 - ReactJS for frontend UI
@@ -47,10 +48,10 @@ This project uses Django as backend and ReactJS, Javascript (ES6), Bootstrap for
         4. Select ticket type
     - View your booked ticket
 - ##### For administrator (Utilize Django admin):
-    - Create new movie
-    - Create new gernes
-    - Create screen date and time for a movie
-    - Create new theater (Every theater has the same 64 seats for now)
+    - Add new movie
+    - Add new gernes
+    - Add screen date and time for a movie
+    - Add new theater (Every theater has the same 64 seats for now)
     - Manage ticket type and price for each types
     - Manage movies, genres, screens, seats, theaters, ticket types and bookings by user
 
@@ -98,9 +99,43 @@ cd ../..
 ```
 python manage.py runserver
 ```
+9. Go to the URL provided in the terminal and you should be redirected to the Homepage!
+
+## Usage
+When open the index page (`/`), you should be direct to the login page, if you're logged in, you will be direct to the `homepage` (note that you don't have to logged in to go to the `homepage`, but you'll need to logged to use some others function)
+In the home page, there're some pre-created movies I've added, you can add more or remove them in the Django Admin panel (To create admin account: `python manage.py createsuperuser`)
+
+![Homepage](doc/homepage.jpg)
+You can select any movies, that will redirect you to the `movie page`.
+
+![MoviePage](doc/moviePage.jpg)
+In the `movie page`, you can see some movie informations like the title, the synopsis and the trailer video from youtube.
+To book a ticket for this movie, click on `Book now`, you'll be directed to the page where you can select date and time for the movie.
+
+![screeningPage](doc/screeningPage.jpg)
+On this page, you can select time to watch the movie based on the schedule that the admin created for this movie.
+Choose a time, and you'll be directed to `Select seat page`
+
+![seatPage](doc/seatPage.jpg)
+On this page, you can see all the taken seat by other users, you cannot choose those seats, you can only choose the available seats (Only choose 1 seat at a time).
+After choosing seat, you can choose the ticket types that the admin has added for this movie. 
+Click `Next` and you'll be directed to the `ticketInfo Page`
+
+![ticketInfo](doc/ticketInfoPage.jpg)
+On this page, you can see all the information of your ticket, includes the movie, date, time, seat code and ticket type.
+
+You can see your booking history by click on your username, it'll direct you to the history page.
+
+![historyPage](doc/historyPage.jpg)
+On this page, you can see all the ticket that you've booked, click on any of that, it'll direct you to the `ticketInfo Page` to see all ticket details
+
+##### Django Admin
+Go to the Django Admin panel (`/admin`) and login with you admin account, you can manage some of the model I've registed with Django Admin
+![DjangoAdmin](doc/djangoAdmin.jpg)
 
 
 ## API
+API managed by [Django-Rest-Framework](https://www.django-rest-framework.org/)
 
 #### WEBSITE API
 
@@ -272,3 +307,10 @@ Return a refresh token every 4 minutes
 	- 📄 `requirement.txt` - Required python dependency
 
 ## Distinctiveness and Complexity
+For this project, the biggest challenge to me is make the frontend and backend as two seperated apps, the backend using `Django Rest Framework` to manage and response to API calls and the frontend using `ReactJS` for UI. 
+This is the first app I've ever built with `ReactJS` so I have to learn a lot about `ReactJS` in order to make the frontend interface for some features like implementing JWT authentication, making the select date, time and choosing seat pages. 
+The backend using `Django` has 7 models, utilizes `Django Admin panel` to manage all the model objects and using `Django Rest Framework` to serialize and response to API calls.
+
+## Footnote
+I know it's not a "perfect" website for a movie theater, it still lack of a lot of features and you will find it not very convenient to use, I wish I had more time to work on this project, I'd fix a lot of issues the app is having and make it much better, but for the short time I've spent on this project, I've learnt a lot about Django, DRF and React, and I'm proud of my work.
+Thank you very much!

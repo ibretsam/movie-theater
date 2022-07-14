@@ -13,6 +13,7 @@
 ## Movie Theater
 This project is for the final project [Capstone](https://cs50.harvard.edu/web/2020/projects/final/cap) of the online course [CS50's Web Programming with Python and JavaScript](https://cs50.harvard.edu/web/). The project replicates the basic functions of a movie theater website, where users can register for an account, see which movies is showing, select times, choose a seat, book a ticket for a movie, and see their booking history.
 This project uses Django as backend and ReactJS, Javascript (ES6), Bootstrap for frontend.
+See live demo here: https://movie-theater-cs50w.herokuapp.com/
 
 ### Technologies used:
 - Python
